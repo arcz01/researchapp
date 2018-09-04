@@ -1,0 +1,8 @@
+{
+  "name": "researchapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "12b75304"
+}

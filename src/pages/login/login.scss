@@ -1,0 +1,40 @@
+.true-center {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+width: 100px;
+position: relative;
+left: 40%;
+margin-top: 40px;
+}
+.welcome{
+font-weight: bold;
+font-size: 25px;
+margin-left: 0;
+}
+.item-input-has-focus .label-md[floating], .input-has-focus .label-md[floating]{
+    color: rgb(28, 177, 6); //label color when focusing
+}
+.item-input .label-md{
+    color: black; //label color
+}
+ion-item.item-md.item-input.input-has-focus .item-inner,
+ion-item.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner,
+ion-item.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+    border-bottom-color: green;
+    box-shadow: none;
+}
+ion-item.item-wp.item-input.input-has-focus .text-input,
+ion-item.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus) .text-input,
+ion-item.item-wp.item-input.ng-invalid.ng-touched:not(.input-has-focus) .text-input {
+    border: 2px solid #ffffff;
+
+}
+.main{
+    padding-left: 16px;
+    padding-right: 16px;
+}

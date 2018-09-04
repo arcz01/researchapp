@@ -1,0 +1,194 @@
+<ion-content padding>
+    <ion-card style="padding:0;margin:0;width:100vw;margin-bottom:30px;border-radius:0%">
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-4>
+                <img src="assets/imgs/logo-default.png" alt="" class="idlogo">
+            </ion-col>
+            <ion-col col-8>
+              <ion-row>
+                <ion-col>
+                    <span >{{user_data.user_profile_name}}  {{user_data.user_profile_middlename}}  {{user_data.user_profile_surname}} </span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col>
+                      <ion-icon ios="logo-usd" md="logo-usd" style="font-size: 30px;"><span style="font-weight: bold;color:green" >250</span> <span class="points">points</span>  </ion-icon>
+                  </ion-col>
+                </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <ion-row>
+          <ion-col>
+            <span class="mylabel">MY ACCOUNT</span>
+            <ion-card>
+                <ion-card-content>
+
+                  <ion-row>
+                    <ion-col class="menu">
+                      <ion-row (click)="onEditProfile()" >
+                          <ion-col col-1>
+                              <ion-icon ios="ios-create" md="md-create"></ion-icon>
+                          </ion-col>
+                          <ion-col col-10>
+                          Edit profile
+                          </ion-col>
+                          <ion-col col-1>
+                          <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+                          </ion-col>
+                      </ion-row>
+                      <hr>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="menu">
+                      <ion-col>
+                              <ion-row >
+                                  <ion-col col-1>
+                                      <ion-icon ios="ios-home" md="md-home"></ion-icon>
+                                  </ion-col>
+                                  <ion-col col-10>
+                                  Household details
+                                  </ion-col>
+                                  <ion-col col-1>
+                                  <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+                                  </ion-col>
+                              </ion-row>
+                              <hr>
+                      </ion-col>
+                  </ion-row>
+                  <ion-row>
+                      <ion-col class="menu">
+                          <ion-row (click)="onChangePassword()" >
+                              <ion-col col-1>
+                                  <ion-icon ios="ios-unlock" md="md-unlock"></ion-icon>
+                              </ion-col>
+                              <ion-col col-10>
+                              change password
+                              </ion-col>
+                              <ion-col col-1>
+                              <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+                              </ion-col>
+                          </ion-row>
+                          <hr>
+                  </ion-col>
+                  </ion-row>
+                  <ion-row>
+                      <ion-col class="menu">
+                          <ion-row >
+                              <ion-col col-1>
+                                  <ion-icon ios="ios-card" md="md-card"></ion-icon>
+                              </ion-col>
+                              <ion-col col-10>
+                              Referral ID
+                              </ion-col>
+                              <ion-col col-1>
+                              <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+                              </ion-col>
+                          </ion-row>
+                  </ion-col>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+              <span class="mylabel">MORE</span>
+              <ion-card>
+                  <ion-card-content>
+  
+                    <ion-row>
+                      <ion-col class="menu">
+                        <ion-row  >
+                            <ion-col col-1>
+                                <ion-icon ios="ios-create" md="md-create"></ion-icon>
+                            </ion-col>
+                            <ion-col col-10>
+                            Change Font size
+                            </ion-col>
+                            <ion-col col-1>
+                            <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                        <hr>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row class="menu">
+                        <ion-col>
+                                <ion-row >
+                                    <ion-col col-1>
+                                        <ion-icon ios="ios-notifications" md="md-notifications"></ion-icon>
+                                    </ion-col>
+                                    <ion-col col-8>
+                                    Push notification
+                                    </ion-col>
+                                    <ion-col col-3>
+                                        <ion-toggle  checked="{{notif}}"></ion-toggle>
+                                    </ion-col>
+                                </ion-row>
+                                <hr>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="menu">
+                            <ion-row (click)="onChangePassword()" >
+                                <ion-col col-1>
+                                    <ion-icon ios="ios-alert" md="md-alert"></ion-icon>
+                                </ion-col>
+                                <ion-col col-10>
+                                About Survey app
+                                </ion-col>
+                                <ion-col col-1>
+                                <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+                                </ion-col>
+                            </ion-row>
+                            <hr>
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col class="menu">
+                            <ion-row >
+                                <ion-col col-1>
+                                    <ion-icon ios="ios-paper" md="md-paper"></ion-icon>
+                                </ion-col>
+                                <ion-col col-10>
+                                Terms of Service
+                                </ion-col>
+                                <ion-col col-1>
+                                <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+                                </ion-col>
+                            </ion-row>
+                    </ion-col>
+                    </ion-row>
+                  </ion-card-content>
+                </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-card>
+                  <ion-card-content>
+                    <ion-row>
+                      <ion-col class="menu">
+                        <ion-row (click)="onLogout()" >
+                            <ion-col col-1>
+                                <ion-icon ios="ios-create" md="md-create"></ion-icon>
+                            </ion-col>
+                            <ion-col col-10>
+                            Log out
+                            </ion-col>
+                            <ion-col col-1>
+                            <ion-icon ios="ios-arrow-forward-outline" md="md-arrow-forward"></ion-icon>
+                            </ion-col>
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                  </ion-card-content>
+                </ion-card>
+            </ion-col>
+          </ion-row>
+
+</ion-content>

@@ -1,0 +1,49 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>
+    </ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding>
+    <div class="container col-12">
+        <img src="assets/imgs/logo-default.png" alt="" class="logo">
+    </div>
+    <ion-row  style="align-items: stretch" class="col-12 main">
+        <ion-col>
+        <ion-label class="welcome" > Welcome to Research App!</ion-label>
+        </ion-col>
+    </ion-row>
+    <ion-row style="align-items: stretch" class="col-12 main">
+      <ion-col>
+          <ion-label>Please login to continue.</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="main">
+        <ion-col>
+            <form (ngSubmit)="Onlogin(loginForm)" #loginForm="ngForm">
+            <ion-list style="margin:0;">
+                <ion-item style="padding-left: 0">
+                  <ion-label floating>Username</ion-label>
+                  <ion-input type="text"   #email  name="email"  [(ngModel)]="user.email"></ion-input>
+                </ion-item>
+                <ion-item style="padding-left: 0">
+                  <ion-label floating>Password</ion-label>
+                  <ion-input type="password"  #password  name="password" [(ngModel)]="user.password"></ion-input>
+                </ion-item>
+              </ion-list>
+            </form>
+        </ion-col>
+      </ion-row>
+    <ion-row class="main">
+        <ion-label text-right style="color: rgb(28, 177, 6);" (click)="onForgot()" >Forgot Password?</ion-label>
+    </ion-row>
+    <ion-row class="main">
+      <ion-col>
+          <button ion-button full block  (click)="Onlogin(loginForm)"  type="submit" style="background:rgb(28, 177, 6);" >LOG IN</button>
+      </ion-col>
+    </ion-row>
+  </ion-content>
+  
+  
+  

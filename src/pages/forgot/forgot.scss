@@ -1,0 +1,30 @@
+.ion-md-close:before {
+    filter: invert(100%);
+    font-weight: bold;
+    font-size: 30px;
+    padding-left: 16px;
+}
+.ion-md-lock:before {
+    color:#17d647;
+    font-size: 60px;
+}
+.card{
+    margin-top: 40px;
+    border-radius: 4%;
+}
+.forgot{
+    font-weight: bold;
+    font-size: 20px;
+}
+ion-item.item-md.item-input.input-has-focus .item-inner,
+ion-item.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner,
+ion-item.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+    border-bottom-color: green;
+    box-shadow: none;
+}
+ion-item.item-wp.item-input.input-has-focus .email-input,
+ion-item.item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus) .email-input,
+ion-item.item-wp.item-input.ng-invalid.ng-touched:not(.input-has-focus) .email-input {
+    border: 2px solid green;
+
+}
