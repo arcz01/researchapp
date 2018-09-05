@@ -1,5 +1,49 @@
 page-reward {
 
+    ion-app.md [padding] .scroll-content {
+        padding: 0;
+        background: #e1e1e1;
+    }
+    .head{
+        color: green;
+        height: 60px;
+        padding: 10px;
+        background: white;
+    }
+    .mainheader{
+        background-image: url('../../assets/imgs/confetti.jpg');
+        height: 150px;
+        text-align: center;
+        color: white;
+        font-size: 20px
+    }
+    .idlogo{
+        width: 100px;
+        }
+    
+    .points{
+        text-transform: uppercase;
+        font-size: 15px;
+    }
+    .mylabel{
+        margin-left: 30px;
+    }
+    .card{
+        margin-top: 10px;
+    }
+    .menu:hover{
+        background: #e1e1e1;
+    }
+    .card-content-md {
+        padding: 0;
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+    .col{
+       padding:11px 10px;
+    
+    }
+
 }
 ion-app.md [padding] .scroll-content {
     padding: 0;

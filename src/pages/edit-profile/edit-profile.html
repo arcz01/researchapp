@@ -9,7 +9,7 @@
                     <span class="name">Edit Profile</span>
             </ion-col>
             <ion-col col-3 style="padding-top: 20px;padding-left: 20px;padding-bottom:0;">
-                  <span class="name" style="font-size: 20px;"> Save</span>
+                  <span class="name" style="font-size: 20px;" (click)="onEditProfile()"> Save</span>
             </ion-col>
           </ion-row>
         </ion-card-content>
@@ -64,9 +64,19 @@
                     </ion-select>
                   </ion-item>
                   <ion-item>
-                    <ion-label floating>Date</ion-label>
+                    <ion-label floating>Birthdate</ion-label>
                     <ion-datetime displayFormat="DD MMMM YYYY" min="1950" max="2018-01-31"formControlName="birthdate">
                     </ion-datetime>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label floating>Marital status</ion-label>
+                    <ion-select formControlName="marital">
+                        <ion-option *ngFor="let maritalStatus of maritalStatus" value="{{maritalStatus?.id}}">{{maritalStatus?.name}}</ion-option>
+                        <!-- <ion-option value="Single">Single</ion-option>
+                        <ion-option value="Married">Married</ion-option>
+                        <ion-option value="Divorced">Divorced</ion-option>
+                        <ion-option value="Widowed">Widowed</ion-option> -->
+                    </ion-select>
                   </ion-item>
               </ion-list>
             </form>

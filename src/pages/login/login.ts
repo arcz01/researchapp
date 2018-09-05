@@ -68,24 +68,25 @@ export class LoginPage {
   }
   Onlogin(){
     // console.log(this.loginForm.value)
-    this.storage.get("sess_access_token").then((token) => {
-      this.token['token'] = token;
-      this.loginProvider.onLogin(this.loginForm.value,token).then((res) => {
-        if(res['error'] === 1) {
-          this.presentToast(res['message']);
-        } else {
-          this.presentToast(res['message']);
-          this.storage.set("sess_user_login", res['user']).then((log) => {
-              this.storage.set("sess_user_token_logged", res['token']).then((token) => {
-                 this.storage.remove("sess_forgot_pass_email");
-                 this.navCtrl.setRoot(TabPage);
-              });
-          }, err => {
-             this.presentToast(res['message']);
-        });
-      }
-    });
-    })
+    this.navCtrl.setRoot(TabPage);
+    // this.storage.get("sess_access_token").then((token) => {
+    //   this.token['token'] = token;
+    //   this.loginProvider.onLogin(this.loginForm.value,token).then((res) => {
+    //     if(res['error'] === 1) {
+    //       this.presentToast(res['message']);
+    //     } else {
+    //       this.presentToast(res['message']);
+    //       this.storage.set("sess_user_login", res['user']).then((log) => {
+    //           this.storage.set("sess_user_token_logged", res['token']).then((token) => {
+    //              this.storage.remove("sess_forgot_pass_email");
+    //              this.navCtrl.setRoot(TabPage);
+    //           });
+    //       }, err => {
+    //          this.presentToast(res['message']);
+    //     });
+    //   }
+    // });
+    // })
   }
 
   presentToast(msg) {

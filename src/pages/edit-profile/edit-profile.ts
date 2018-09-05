@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, ToastController } from 'ionic-angular';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Camera } from '@ionic-native/camera';
 import { normalizeURL } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Storage } from '@ionic/storage';
+import { SiteProvider } from '../../providers/site/site';
 /**
  * Generated class for the EditProfilePage page.
  *
@@ -19,6 +20,19 @@ import { Storage } from '@ionic/storage';
 export class EditProfilePage {
   id: any;
   public personalInfoForm: FormGroup;
+  maritalStatus:any ="";
+  marit:any = [
+  {
+    id:1,
+  name:'Single'
+  },
+  {
+    id:2,
+    name:'Devorced'
+  }
+
+
+  ]
 
   user_data = (this.navParams.get('profile')) ? this.navParams.get('profile') : null;
   constructor(
@@ -28,7 +42,9 @@ export class EditProfilePage {
     public imagePicker: ImagePicker,
     public camera: Camera,
     public formBuilder: FormBuilder,
-    public storage: Storage
+    public storage: Storage,
+    public siteProvider:SiteProvider,
+    public toastCtrl: ToastController,
   ) {
     this.personalInfoForm = formBuilder.group({
       firstname: [this.user_data.user_profile_middlename, Validators.compose([Validators.required])],
@@ -36,16 +52,48 @@ export class EditProfilePage {
       lastname: [this.user_data.user_profile_surname, Validators.compose([Validators.required])],
       email: [this.user_data.email, Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])],
       birthdate: [this.user_data.user_profile_birthdate, Validators.compose([Validators.required])],
-      gender: [this.user_data.user_profile_gender]
+      gender: [this.user_data.user_profile_gender],
+      marital: [this.user_data.sa_personal_info_lib_marital_status_id
+      ]
+
   });
   }
   ionViewDidLoad() {
-    console.log('INFO: ',this.user_data )
-    this.storage.get("sess_user_login").then((data) => {
-      this.user_data = data;
-      // console.log('USER DATA INFO: ',data)
-    });
+    console.log(this.user_data,'Marital status: ',this.user_data.sa_personal_info_lib_marital_status_id);
+    this.storage.get("sess_access_token").then((token) => {
+      console.log(token);
+      this.siteProvider.OnGetMaritalList(token).then(res =>{
+        console.log('RESPONSE: ',res);
+        if(res['error'] === 1) {
+          this.presentToast(res['message']);
+        } else {
+          console.log('RESPONSE: ',res);
+          this.maritalStatus = res
+          this.presentToast(res['message']);
+      }
+      })
+    })
   }
+
+  onEditProfile(){
+    var data ={
+      firstname:this.personalInfoForm.value.firstname,
+      lastname:this.personalInfoForm.value.lastname,
+      middlename:this.personalInfoForm.value.middlename,
+      birthdate:this.personalInfoForm.value.birthdate,
+      gender:this.personalInfoForm.value.gender,
+      email:this.personalInfoForm.value.email,
+          }
+
+
+  }
+  presentToast(msg) {
+    this.toastCtrl.create({
+        message: msg,
+        duration: 2000,
+        position: "top"
+    }).present();
+}
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Select Image Source',
@@ -85,7 +133,6 @@ openImagePicker(){
           });
       }, (err) => { console.log(err) });
 }
-
 takePicture(){
   if(!this.id) {
     this.id = new Array<string>();
