@@ -12,7 +12,7 @@ import { ToastController } from 'ionic-angular';
 export class SiteProvider {
 
   public generic_error_msg = "Something went wrong. Please try again.";
-  apiBase: string = 'http://surveyapp.dv/api';
+  apiBase: string = 'http://dev.survey.livewire365.com/api';
   accessToken:any ="";
   deviceToken: any="cX6K89KLwlQ:APA91bFTqK0l_G0oS0ZbBi1XvFuPuGJRhlnvG_pnS8-SiHlMqK1wiNQ6ax1A79Ei4Qhb6m80h2aaicOapuNqEPPivHbv9Hl5mVweDCjgfZdWJbaw4x9m7yltzXSUaRqhbA0oUt8Zswim";
   constructor(public http: Http,public toastCtrl: ToastController,) {
